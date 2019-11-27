@@ -2,15 +2,22 @@ import React, { useEffect, useState } from "react"
 import io from "socket.io-client"
 import api from "../../services/api"
 
+import ScaleLoader from "react-spinners/ScaleLoader"
+
 import itsamatch from "../../assets/itsamatch.png"
 
 import Header from "../../components/Header"
 
 import {
   Container,
+  BackContainer,
+  BioContainer,
   ButtonsContainer,
+  BtnPerfil,
+  BtnConectar,
   MatchContainer,
-  MatchAvatar
+  MatchAvatar,
+  WraperLoading
 } from "./styles"
 
 export default function Main({ match }) {
@@ -49,33 +56,64 @@ export default function Main({ match }) {
     setUsers(users.filter(user => user._id !== id))
   }
 
+  async function handlePerfil(user) {
+    window.location.href = `https://github.com/${user}`
+  }
+
   return (
     <>
       <Header />
       <Container>
-        <ul>
-          {users.map(user => (
-            <li key={user._id}>
-              <img src={user.avatar} alt={user.name} />
-              <footer>
-                <strong>{user.name}</strong> <span>{user.user}</span>
-                <p>{user.bio}</p>
-              </footer>
+        {users.length > 0 ? (
+          <ul>
+            {users.map(user => (
+              <li key={user._id}>
+                <BackContainer></BackContainer>
+                <img src={user.avatar} alt={user.name} />
+                <footer>
+                  <strong>{user.name}</strong>
+                  <br />
+                  <span>{user.user}</span>
+                  <BioContainer>{user.bio}</BioContainer>
+                </footer>
 
-              <ButtonsContainer>
-                <button type="button" onClick={() => handleLike(user._id)}>
-                  Conectar
-                </button>
-              </ButtonsContainer>
-            </li>
-          ))}
-        </ul>
+                <ButtonsContainer>
+                  <BtnPerfil
+                    type="button"
+                    onClick={() => handlePerfil(user.user)}
+                  >
+                    Ver Perfil
+                  </BtnPerfil>
+
+                  <BtnConectar
+                    type="button"
+                    onClick={() => handleLike(user._id)}
+                  >
+                    Conectar
+                  </BtnConectar>
+                </ButtonsContainer>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <WraperLoading>
+            <ScaleLoader
+              sizeUnit="px"
+              height={80}
+              width={12}
+              margin="6px"
+              radius={4}
+              size={100}
+              color="#5c8df6"
+            />
+          </WraperLoading>
+        )}
 
         {matchDev && (
           <MatchContainer>
             <img src={itsamatch} alt="It's a match" />
 
-            <MatchAvatar className="avatar" src={matchDev.avatar} alt="" />
+            <MatchAvatar src={matchDev.avatar} alt="" />
             <strong>{matchDev.name}</strong>
             <p>{matchDev.bio}</p>
 
