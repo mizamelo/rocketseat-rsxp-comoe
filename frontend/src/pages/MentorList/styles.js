@@ -18,8 +18,8 @@ export const Container = styled.div`
       -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
       -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
       box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
-      border-radius: 6px;
-
+      border-radius: 6px !important;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
 
