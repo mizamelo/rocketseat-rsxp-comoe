@@ -1,14 +1,14 @@
 import React from "react"
 import { BrowserRouter, Route } from "react-router-dom"
 
-import Login from "./pages/SignIn"
-import Main from "./pages/Main"
+import SignIn from "./pages/SignIn"
+import MentorList from "./pages/MentorList"
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Route exact path="/" component={Login} />
-      <Route path="/dev/:id" component={Main} />
+      <Route exact path="/" component={SignIn} />
+      <Route path="/dev/:id" component={MentorList} />
     </BrowserRouter>
   )
 }
