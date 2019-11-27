@@ -11,6 +11,8 @@ import RankingMentor from './pages/RankingMentor';
 import ProfessionList from "./pages/ProfessionList"
 import Wizard from "./pages/Wizard"
 
+import ProfessionDetails from './pages/ProfessionDetails';
+
 export default function Routes() {
   return (
     <BrowserRouter>
@@ -25,6 +27,9 @@ export default function Routes() {
       <Route path="/opportunities" component={Opportunities} />
       <Route path="/ranking" component={RankingMentor} />
       <Route exact path="/" component={Wizard} />
+      {/* <Route path="/score" component={ScoreStudent} /> */}
+
+      <Route path="/profession-details" component={ProfessionDetails} />
     </BrowserRouter>
   );
 }
