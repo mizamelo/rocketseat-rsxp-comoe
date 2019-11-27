@@ -5,11 +5,11 @@ import ScaleLoader from "react-spinners/ScaleLoader"
 import { Container, BioContainer, WraperLoading } from "./styles"
 
 export default function Main({ match }) {
-  function cutText(text) {
-    if (text.length > 70) {
-      return text.slice(0, 120) + "..."
-    }
-  }
+  // function cutText(text) {
+  //   if (text.length > 70) {
+  //     return text.slice(0, 120) + "..."
+  //   }
+  // }
 
   const profissions = [
     {
