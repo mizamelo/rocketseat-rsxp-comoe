@@ -3,10 +3,8 @@ import {
   Container,
   TopImage,
   Title,
-  ListItem,
   TitleItem,
   TextItem,
-  TextCall,
   Content,
   CardProfession,
   Back
