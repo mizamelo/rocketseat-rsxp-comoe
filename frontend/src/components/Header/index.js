@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { FaMapSigns } from "react-icons/fa"
 
@@ -7,6 +7,14 @@ import Notifications from "../Notifications"
 import { Container, Content, Profile } from "./styles"
 
 export default function Header() {
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    const user = window.localStorage.getItem('@username');
+
+    setName(user);
+  }, []);
+
   return (
     <Container>
       <Content>
@@ -28,13 +36,13 @@ export default function Header() {
 
           <Profile>
             <div>
-              <strong>Diego Fernandes</strong>
-              <Link to="/">Meu Perfil</Link>
+              <strong>{name}</strong>
+              <Link to="#">Meu Perfil</Link>
             </div>
-            <img
+            {/* <img
               src={"https://api.adorable.io/avatars/50/abott@adorable.png"}
               alt=""
-            />
+            /> */}
           </Profile>
         </aside>
       </Content>

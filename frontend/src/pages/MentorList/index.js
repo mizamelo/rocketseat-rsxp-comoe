@@ -4,7 +4,7 @@ import api from "../../services/api"
 
 import ScaleLoader from "react-spinners/ScaleLoader"
 
-import itsamatch from "../../assets/itsamatch.png"
+// import itsamatch from "../../assets/itsamatch.png"
 
 import Header from "../../components/Header"
 
@@ -17,6 +17,7 @@ import {
   BtnConectar,
   MatchContainer,
   MatchAvatar,
+  TextMatch,
   WraperLoading
 } from "./styles"
 
@@ -111,7 +112,10 @@ export default function Main({ match }) {
 
         {matchDev && (
           <MatchContainer>
-            <img src={itsamatch} alt="It's a match" />
+            {/* <img src={itsamatch} alt="It's a match" /> */}
+            <TextMatch>
+              Oba! Você tem uma nova conexão!
+            </TextMatch>
 
             <MatchAvatar src={matchDev.avatar} alt="" />
             <strong>{matchDev.name}</strong>

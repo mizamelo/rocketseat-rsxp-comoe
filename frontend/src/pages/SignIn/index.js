@@ -12,6 +12,7 @@ export default function SignIn({ history }) {
 
     const response = await api.post("/devs", { username })
 
+    window.localStorage.setItem('@username', response.data.name);
     const { _id } = response.data
 
     history.push(`/dev/${_id}`)

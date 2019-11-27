@@ -139,7 +139,7 @@ export const MatchContainer = styled.div`
   }
 `
 
-export const MatchAvatar = styled.image`
+export const MatchAvatar = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -154,3 +154,9 @@ export const WraperLoading = styled.div`
   margin-top: 350px;
   width: 50%;
 `
+
+export const TextMatch = styled.p`
+  font-size: 38px;
+  font-weight: 700;
+  font-family: monospace;
+`;
