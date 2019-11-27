@@ -1,4 +1,4 @@
-const Dev = require('../models/Dev');
+const Dev = require("../models/Dev");
 
 module.exports = {
   async store(req, res) {
@@ -6,17 +6,13 @@ module.exports = {
     const { devId } = req.params;
 
     const loggedDev = await Dev.findById(user);
-    let targetDev = null
+    const targetDev = await Dev.findById(devId);
 
-    try {
-      targetDev = await Dev.findById(devId);
-    } catch (error) {
-      return res.status(400).json({ error: 'Dev not exists' });
+    if (!targetDev) {
+      return res.status(400).json({ error: "Dev not exists" });
     }
-    
 
     loggedDev.dislikes.push(targetDev._id);
-
     await loggedDev.save();
 
     return res.json(loggedDev);
