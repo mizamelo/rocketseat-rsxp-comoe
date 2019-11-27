@@ -6,6 +6,8 @@ import MentorCreate from "./pages/MentorCreate"
 import MentorList from "./pages/MentorList"
 import Courses from "./pages/Courses"
 import Opportunities from "./pages/Opportunities"
+import RankingMentor from "./pages/RankingMentor"
+import ScoreStudent from "./pages/ScoreStudent"
 
 export default function Routes() {
   return (
@@ -15,6 +17,8 @@ export default function Routes() {
       <Route path="/dev/:id" component={MentorList} />
       <Route path="/courses" component={Courses} />
       <Route path="/opportunities" component={Opportunities} />
+      <Route path="/ranking" component={RankingMentor} />
+      <Route path="/score" component={ScoreStudent} />
     </BrowserRouter>
   )
 }
