@@ -24,7 +24,8 @@ export default function Notifications() {
 
   useEffect(() => {
     async function loadNotifications() {
-      const response = await api.get("notifications")
+      const id = window.localStorage.getItem('@iduser')
+      const response = await api.get(`/notifications/${id}`)
 
       const data = response.data.map(notification => ({
         ...notification,

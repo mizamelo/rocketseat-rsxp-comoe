@@ -12,9 +12,11 @@ export default function SignIn({ history }) {
 
     const response = await api.post("/devs", { username })
 
-    window.localStorage.setItem('@username', response.data.name);
+    
     const { _id } = response.data
-
+    window.localStorage.setItem('@username', response.data.name);
+    window.localStorage.setItem('@iduser', _id);
+    
     history.push(`/mentor/${_id}`)
   }
 

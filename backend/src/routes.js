@@ -12,8 +12,8 @@ routes.get("/devs", DevController.index)
 routes.post("/devs/:devId/likes", LikeController.store)
 routes.post("/devs/:devId/dislikes", DislikeController.store)
 
-routes.post("/notifications", NotificationController.store)
-routes.get("/notifications", NotificationController.index)
+// routes.post("/notifications", NotificationController.store)
+routes.get("/notifications/:id", NotificationController.index)
 routes.put("/notifications/:id", NotificationController.update)
 
 module.exports = routes

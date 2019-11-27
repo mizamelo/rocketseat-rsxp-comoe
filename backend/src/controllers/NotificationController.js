@@ -2,8 +2,9 @@ const Notification = require("../models/Notification")
 
 module.exports = {
   async index(req, res) {
+    
     const notifications = await Notification.find({
-      user: "5ddd908c940ee4413c2c77fa"
+      user: req.params.id
     })
       .sort({ createdAt: "desc" })
       .limit(20)
@@ -11,15 +12,13 @@ module.exports = {
     return res.json(notifications)
   },
 
-  async store(req, res) {
-    const { user_id, user_name } = req.body
-
+  async store(user_id, user_name) {
     const notifica = await Notification.create({
       content: `Nova solicitação de conexão de ${user_name}`,
       user: user_id
     })
 
-    return res.json(notifica)
+    return notifica;
   },
 
   async update(req, res) {

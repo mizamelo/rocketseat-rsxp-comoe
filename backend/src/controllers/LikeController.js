@@ -1,4 +1,5 @@
 const Dev = require("../models/Dev");
+const NotificationController = require('./NotificationController');
 
 module.exports = {
   async store(req, res) {
@@ -22,6 +23,8 @@ module.exports = {
 
       if (targetSocket) {
         req.io.to(targetSocket).emit("match", loggedDev);
+        const t = await NotificationController.store(user, loggedDev.name);
+        console.log(t)
       }
     }
 
