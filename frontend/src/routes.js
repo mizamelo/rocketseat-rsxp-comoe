@@ -14,7 +14,7 @@ export default function Routes() {
     <BrowserRouter>
       <Route exact path="/" component={SignIn} />
       <Route path="/mentorcreate" component={MentorCreate} />
-      <Route path="/dev/:id" component={MentorList} />
+      <Route path="/mentor/:id" component={MentorList} />
       <Route path="/courses" component={Courses} />
       <Route path="/opportunities" component={Opportunities} />
       <Route path="/ranking" component={RankingMentor} />

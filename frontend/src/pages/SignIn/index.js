@@ -15,7 +15,7 @@ export default function SignIn({ history }) {
     window.localStorage.setItem('@username', response.data.name);
     const { _id } = response.data
 
-    history.push(`/dev/${_id}`)
+    history.push(`/mentor/${_id}`)
   }
 
   return (
