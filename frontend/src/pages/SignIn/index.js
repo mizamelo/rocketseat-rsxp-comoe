@@ -1,20 +1,21 @@
-import React, { useState } from "react"
-import api from "../../services/api"
-import { FaMapSigns } from "react-icons/fa"
+import React, { useState } from 'react';
+import api from '../../services/api';
+import { FaMapSigns } from 'react-icons/fa';
 
-import { Container, Content } from "./styles"
+import { Container, Content } from './styles';
 
 export default function SignIn({ history }) {
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState('');
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    const response = await api.post("/devs", { username })
+    const response = await api.post('/devs', { username });
 
-    const { _id } = response.data
+    const { _id } = response.data;
 
-    history.push(`/dev/${_id}`)
+    localStorage.setItem('@id', JSON.stringify({ id: _id }));
+    history.push(`/mentors/${_id}`);
   }
 
   return (
@@ -35,5 +36,5 @@ export default function SignIn({ history }) {
         </form>
       </Content>
     </Container>
-  )
+  );
 }
