@@ -23,6 +23,8 @@ export default function Header(props) {
           <Link to="/score">ESTUDANTES</Link>
 
           <Link to="/ranking">RANKING</Link>
+
+          <Link to="/profession-details">DETAILS</Link>
         </nav>
 
         <aside>

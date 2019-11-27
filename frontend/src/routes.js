@@ -9,6 +9,8 @@ import Opportunities from './pages/Opportunities';
 import RankingMentor from './pages/RankingMentor';
 import ScoreStudent from './pages/ScoreStudent';
 
+import ProfessionDetails from './pages/ProfessionDetails';
+
 export default function Routes() {
   return (
     <BrowserRouter>
@@ -19,6 +21,8 @@ export default function Routes() {
       <Route path="/opportunities" component={Opportunities} />
       <Route path="/ranking" component={RankingMentor} />
       <Route path="/score" component={ScoreStudent} />
+
+      <Route path="/profession-details" component={ProfessionDetails} />
     </BrowserRouter>
   );
 }
