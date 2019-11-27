@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react"
-import io from "socket.io-client"
-import api from "../../services/api"
+import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
+import api from '../../services/api';
 
-import ScaleLoader from "react-spinners/ScaleLoader"
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 // import itsamatch from "../../assets/itsamatch.png"
 
-import Header from "../../components/Header"
+import Header from '../../components/Header';
 
 import {
   Container,
@@ -19,46 +19,47 @@ import {
   MatchAvatar,
   TextMatch,
   WraperLoading
-} from "./styles"
+} from './styles';
 
 export default function Main({ match }) {
-  const [users, setUsers] = useState([])
-  const [matchDev, setMatchDev] = useState(null)
+  const { id } = match.params;
+  const [users, setUsers] = useState([]);
+  const [matchDev, setMatchDev] = useState(null);
 
   useEffect(() => {
     async function loadUsers() {
-      const response = await api.get("/devs", {
+      const response = await api.get('/devs', {
         headers: {
-          user: match.params.id
+          user: id
         }
-      })
+      });
 
-      setUsers(response.data)
+      setUsers(response.data);
     }
 
-    loadUsers()
-  }, [match.params.id])
+    loadUsers();
+  }, [id]);
 
   useEffect(() => {
-    const socket = io("http://localhost:3333", {
-      query: { user: match.params.id }
-    })
+    const socket = io('http://localhost:3333', {
+      query: { user: id }
+    });
 
-    socket.on("match", dev => {
-      setMatchDev(dev)
-    })
-  }, [match.params.id])
+    socket.on('match', dev => {
+      setMatchDev(dev);
+    });
+  }, [id]);
 
   async function handleLike(id) {
     await api.post(`/devs/${id}/likes`, null, {
       headers: { user: match.params.id }
-    })
+    });
 
-    setUsers(users.filter(user => user._id !== id))
+    setUsers(users.filter(user => user._id !== id));
   }
 
   async function handlePerfil(user) {
-    window.open(`https://github.com/${user}`, "_blank")
+    window.open(`https://github.com/${user}`, '_blank');
   }
 
   return (
@@ -128,5 +129,5 @@ export default function Main({ match }) {
         )}
       </Container>
     </>
-  )
+  );
 }

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { FaMapSigns } from "react-icons/fa"
 
-import Notifications from "../Notifications"
+import Notifications from '../Notifications';
 
-import { Container, Content, Profile } from "./styles"
+import { Container, Content, Profile } from './styles';
 
-export default function Header() {
+export default function Header(props) {
+  const user = JSON.parse(localStorage.getItem('@id'));
   const [name, setName] = useState('');
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Header() {
       <Content>
         <nav>
           <FaMapSigns color="#fff" size={40} />
-          <Link to="/mentors">MENTORES</Link>
+          <Link to={`/mentors/${user.id}`}>MENTORES</Link>
 
           <Link to="/courses">CURSOS</Link>
 
@@ -41,11 +42,13 @@ export default function Header() {
             </div>
             {/* <img
               src={"https://api.adorable.io/avatars/50/abott@adorable.png"}
+            <img
+              src={'https://api.adorable.io/avatars/50/abott@adorable.png'}
               alt=""
             /> */}
           </Profile>
         </aside>
       </Content>
     </Container>
-  )
+  );
 }
