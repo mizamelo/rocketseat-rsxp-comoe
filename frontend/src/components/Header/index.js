@@ -12,14 +12,15 @@ export default function Header() {
       <Content>
         <nav>
           <FaMapSigns color="#fff" size={40} />
+          <Link to="/mentors">MENTORES</Link>
 
           <Link to="/courses">CURSOS</Link>
 
           <Link to="/opportunities">OPORTUNIDADES</Link>
 
-          <Link to="/ranking">MENTORES</Link>
-
           <Link to="/score">ESTUDANTES</Link>
+
+          <Link to="/ranking">RANKING</Link>
         </nav>
 
         <aside>
