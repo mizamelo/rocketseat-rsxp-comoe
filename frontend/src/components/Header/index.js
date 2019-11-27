@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import logo from "../../assets/logo.svg"
+import { FaMapSigns } from "react-icons/fa"
 
 import { Container, Content, Profile } from "./styles"
 
@@ -9,7 +9,7 @@ export default function Header() {
     <Container>
       <Content>
         <nav>
-          <img src={logo} alt="" />
+          <FaMapSigns color="#fff" size={40} />
           <Link to="/lits">MENTORES</Link>
         </nav>
 

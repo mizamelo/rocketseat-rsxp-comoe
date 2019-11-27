@@ -24,6 +24,9 @@ export const Content = styled.div`
     }
 
     a {
+      margin-left: 30px;
+      padding-left: 30px;
+      border-left: 1px solid #eee;
       font-weight: bold;
       color: #fff;
     }
