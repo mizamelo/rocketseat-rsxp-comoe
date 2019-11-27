@@ -32,7 +32,7 @@ export default function Header(props) {
 
           <Link to="/ranking">RANKING</Link>
 
-          <Link to="/profession-details">DETAILS</Link>
+          {/* <Link to="/profession-details">DETAILS</Link> */}
         </nav>
 
         <aside>
