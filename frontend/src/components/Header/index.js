@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { FaMapSigns } from "react-icons/fa"
 
+import Notifications from "../Notifications"
+
 import { Container, Content, Profile } from "./styles"
 
 export default function Header() {
@@ -10,14 +12,19 @@ export default function Header() {
       <Content>
         <nav>
           <FaMapSigns color="#fff" size={40} />
-          <Link to="/lits">MENTORES</Link>
 
           <Link to="/courses">CURSOS</Link>
 
           <Link to="/opportunities">OPORTUNIDADES</Link>
+
+          <Link to="/ranking">MENTORES</Link>
+
+          <Link to="/score">ESTUDANTES</Link>
         </nav>
 
         <aside>
+          <Notifications />
+
           <Profile>
             <div>
               <strong>Diego Fernandes</strong>

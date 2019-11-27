@@ -24,11 +24,12 @@ export default function SignIn({ history }) {
 
         <form onSubmit={handleSubmit}>
           <input
+            name="user"
             placeholder="Usuário"
             value={username}
             onChange={e => setUsername(e.target.value)}
           />
-          <input type="password" placeholder="Senha" />
+          <input name="password" type="password" placeholder="Senha" />
 
           <button type="submit">Entrar</button>
         </form>

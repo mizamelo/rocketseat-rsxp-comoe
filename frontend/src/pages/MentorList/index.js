@@ -57,7 +57,7 @@ export default function Main({ match }) {
   }
 
   async function handlePerfil(user) {
-    window.location.href = `https://github.com/${user}`
+    window.open(`https://github.com/${user}`, "_blank")
   }
 
   return (
