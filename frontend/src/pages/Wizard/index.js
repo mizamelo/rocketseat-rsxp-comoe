@@ -14,23 +14,32 @@ export default function Wizard() {
   return (
     <StepWizard>
       <Container>
-        <h1>Entendendo mais você 😍</h1>
+        <h1>Queremos conhecer você melhor! 😍</h1>
 
         <form>
           <Wrapper>
-            <label htmlFor="">Você gosta de computadores ?</label>
+            <label htmlFor="">Você gosta de computadores?</label>
             <Select options={options} placeholder="Selecione uma opção" />
           </Wrapper>
 
           <Wrapper>
             <label htmlFor="">
-              Tem curiosidade de como faz para construir uma rede social ?
+              Tem curiosidade sobre como construir uma rede social?
             </label>
             <Select options={options} placeholder="Selecione uma opção" />
           </Wrapper>
 
           <Wrapper>
-            <label htmlFor="">Já desmontou um computador ?</label>
+            <label htmlFor="">
+              Valoriza mobilidade, estar conectado é importante pra você?
+            </label>
+            <Select options={options} placeholder="Selecione uma opção" />
+          </Wrapper>
+
+          <Wrapper>
+            <label htmlFor="">
+              Gosta de desenhar, criar coisas e resolver problemas?
+            </label>
             <Select options={options} placeholder="Selecione uma opção" />
           </Wrapper>
 
